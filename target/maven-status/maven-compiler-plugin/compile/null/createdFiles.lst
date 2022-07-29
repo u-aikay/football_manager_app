@@ -1,0 +1,8 @@
+com/fm22/controllers/PlayerController.class
+com/fm22/models/Players.class
+com/fm22/models/Players$PlayersBuilder.class
+com/fm22/repos/PlayerRepo.class
+com/fm22/models/Team.class
+com/fm22/models/Team$TeamBuilder.class
+META-INF/panache-archive.marker
+com/fm22/repos/TeamRepo.class
