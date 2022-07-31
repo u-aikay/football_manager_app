@@ -22,8 +22,8 @@ public class Players extends PanacheEntity {
     private String lastName;
     @NotNull
     private String position;
-    @Column(unique = true)
     private int number;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
     private Team team;
 }
