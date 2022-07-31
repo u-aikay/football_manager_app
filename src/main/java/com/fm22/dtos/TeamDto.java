@@ -14,4 +14,5 @@ public class TeamDto {
     @NotNull
     @Column(name = "team_name")
     private String teamName;
+
 }

@@ -18,32 +18,7 @@ public class Team extends PanacheEntity {
     @NotNull
     @Column(name = "team_name")
     private String teamName;
-    @OneToMany
-    private Set<Players> players;
+//    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+//    private Set<Players> players;
 }
 
-
-
-
-
-
-
-//class Document{
-//
-//    public static void main(String[] args) {
-//
-//        String s = "glory";
-//        System.out.println(reverseStr(s));
-//    }
-//
-//     public static Stack<Character> reverseStr(String s){
-//
-//       Stack<Character> data = new Stack<>();
-//
-//       for(int i = s.length()-1; i >= 0; i--){
-//         data.push(s.charAt(i));
-//       }
-//       return data;
-//
-//     }
-//}

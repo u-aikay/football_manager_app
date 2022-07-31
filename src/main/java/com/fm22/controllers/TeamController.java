@@ -2,6 +2,10 @@ package com.fm22.controllers;
 
 import com.fm22.dtos.TeamDto;
 import com.fm22.services.TeamService;
+import io.smallrye.common.annotation.Blocking;
+import io.smallrye.mutiny.Multi;
+import io.smallrye.mutiny.Uni;
+
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -10,6 +14,7 @@ import javax.ws.rs.core.Response;
 
 
 @Path("/teams")
+@Produces(MediaType.APPLICATION_JSON)
 public class TeamController {
 
     @Inject
@@ -21,26 +26,28 @@ public class TeamController {
 
     @POST
     @Path("/create-team")
-    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response createTeam(TeamDto teamDto){
+    public Uni<Response> createTeam(TeamDto teamDto){
         return teamService.createTeam(teamDto);
     }
 
+
     @GET
     @Path("/all-teams")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllTeams(){
+    @Blocking
+    public Multi<Response> getAllTeams(){
         return teamService.getAllTeams();
     }
 
+    //todo: @Transactional annotation is causing issues
+
     @DELETE
     @Path("/delete-team/{teamName}")
-    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
+    @Blocking
     @Transactional
-    public Response deleteTeam(@PathParam("teamName") String teamName){
+    public Uni<Response> deleteTeam(@PathParam("teamName") String teamName){
         return teamService.deleteTeam(teamName);
     }
 }

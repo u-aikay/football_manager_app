@@ -1,11 +1,15 @@
 package com.fm22.services;
 
-import com.fm22.models.Players;
-import java.util.List;
+import com.fm22.dtos.PlayerDto;
+import io.smallrye.mutiny.Multi;
+import io.smallrye.mutiny.Uni;
+import javax.ws.rs.core.Response;
+
 
 public interface PlayerService {
-    public Players createPlayer(Players player);
-    public Players getPlayer(Long id);
-    public List<Players> getAllPlayers();
-    public void removePlayer(Long id);
+    Uni<Response> createPlayer(PlayerDto playerDto);
+    Uni<Response> getPlayer(Long id);
+    Multi<Response> getAllPlayers();
+    Uni<Response> addPlayerToTeam(Long playerId, Long teamId);
+    Uni<Response> removePlayer(Long playerId);
 }
