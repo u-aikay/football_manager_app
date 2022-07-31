@@ -16,7 +16,7 @@ you can run this application locally using:
 
 ```shell script
 ./mvn compile quarkus:run
-or unzip the package and run it directly on your IDE
+or unzip the package and run it directly on your IDE (e.g. IntelliJ)
 ```
 
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
